@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "group": "build",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-j",
+                "12",
+                "debug_symbols=yes",
+                "bits=64",
+                "scu_build=yes",
+                "dev_build=yes",
+                "optimize=debug"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "runScript",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "build", // Make it depend on the "build" task
+            "type": "shell",
+            "command": "./move.sh", // Command to execute your bash script
+            "problemMatcher": [],
+            
+            "runOptions": {
+                "runOn": "default"
+            }
+        }
+    ]
+}

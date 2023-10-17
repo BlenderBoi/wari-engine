@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/godot-cpp/gen/include/**"
+            ],
+            "defines": [
+                "TOOLS_ENABLED",
+                "DEBUG_ENABLED",
+                "GLES3_ENABLED"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,30 @@
+{
+    "configurations": [
+    {
+      "name": "GDExtension Launch",
+      "cwd": "${workspaceFolder}",
+      "type": "lldb",
+      "request": "launch",
+      "program": "/mnt/sdb1/Godot_v4.2-dev6_linux.x86_64",
+      "args": [ "--editor", "--path", "/mnt/sdb1/job_projects/Godot411/RTSProject/" ],
+      "preLaunchTask": "build",
+      "externalConsole": false,
+      "setupCommands":
+      [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+    },
+    {
+        "name": "Launch Only",
+        "cwd": "${workspaceFolder}",
+        "type": "lldb",
+        "request": "launch",
+        "program": "/mnt/sdb1/Godot_v4.2-dev6_linux.x86_64",
+        "args": [ "--editor", "--path", "/mnt/sdb1/job_projects/Godot411/RTSProject/" ],
+      }
+    ]
+  }
