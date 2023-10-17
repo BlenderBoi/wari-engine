@@ -52,7 +52,7 @@ Please read our [Contributing Guidelines](CONTRIBUTING.md) for more information.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute the code for both personal and commercial projects.
+This project is licensed under the [GNU General Public License (GPL)](LICENSE). You are free to use, modify, and distribute the code for both personal and commercial projects in accordance with the GPL terms and conditions.
 
 ---
 
