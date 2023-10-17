@@ -1,4 +1,4 @@
-# Open-Source RTS Project with Godot 4
+# Wari Engine - Godot 4 Project
 
 ![Project Logo](project_logo.png) <!-- Include an appropriate project logo or image -->
 
@@ -65,8 +65,9 @@ Please read our [Contributing Guidelines](CONTRIBUTING.md) for more information.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute the code for both personal and commercial projects.
+This project is licensed under the [GNU General Public License (GPL)](LICENSE). You are free to use, modify, and distribute the code for both personal and commercial projects in accordance with the GPL terms and conditions.
 
 ---
+
 
 Feel free to reach out to us if you have questions, issues, or suggestions. We hope this open-source RTS project with Godot 4 inspires your game development journey!
