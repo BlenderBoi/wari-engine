@@ -28,13 +28,7 @@ class PathFinding : public Node3D {
         void set_grid_world_size(const int p_grid_world_size);
         int get_grid_world_size() const;
 
-        //HPA related
-        int layer_1_size;
-        int layer_2_size;
-        int layer_3_size;
-
         void _ready();
-        
 
     protected:
         static void _bind_methods();

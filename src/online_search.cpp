@@ -29,13 +29,6 @@ void OnlineSearch::configure(Node* p_owner, int p_num_layers) {
         grid.instantiate();
         cluster.grid = grid;
         
-        Ref<PathFinding> path = Ref<PathFinding>();
-        path.instantiate();
-        p_owner->add_child(path.ptr);
-
-        
-        cluster.path_finding = path_finding;
-        
         cluster_map.emplace(i, cluster);
     }
     
