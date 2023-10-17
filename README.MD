@@ -23,6 +23,24 @@ Our project is an open-source real-time strategy game developed using Godot 4. I
 - **Real-Time Strategy Gameplay**: Includes essential RTS gameplay elements like unit management, resource gathering, and AI-controlled opponents.
 - **Open Source**: Licensed under the [MIT License](LICENSE), encouraging collaboration and customization.
 
+## GDExtension Branch
+
+Our project includes a dedicated branch named "gdext" that hosts all the C++ related code and integrations. This branch is tailored for developers who wish to explore, enhance, or customize the core functionalities of the game using C++.
+
+### Features of GDExtension Branch
+
+- **C++ Integration**: The GDExtension branch contains C++ code for advanced integration and optimizations, allowing developers to fine-tune performance-critical aspects of the game.
+- **Customization**: Developers can extend and modify the game's logic, mechanics, and rendering using C++ to tailor it to their unique requirements.
+- **Performance Enhancements**: With C++ integration, you can achieve performance optimizations that might be essential for larger-scale RTS games.
+
+### Getting Started with GDExtension
+
+1. Check out the "gdext" branch of the project.
+2. Explore the existing C++ codebase and consider contributing to its improvement.
+
+The GDExtension branch is the heart of our project's extensibility and performance enhancements, largely used for HPA (hierarquical path finding algorithm), enabling developers to take full control of the game's internals.
+
+
 ## Installation
 
 1. Clone this repository or download the latest release.
