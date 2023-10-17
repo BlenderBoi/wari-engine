@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c2xuv304dr3c8"]
+
+[ext_resource type="Shader" path="res://shaders/sh_wireframe.gdshader" id="1_swvck"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_swvck")
+shader_parameter/albedo = Color(1, 1, 1, 0.101961)
+shader_parameter/wire_color = Color(0.305882, 0.615686, 0.329412, 1)
+shader_parameter/wire_width = 0.875
+shader_parameter/wire_smoothness = 0.01

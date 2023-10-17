@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c0bcso6cnarm4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PathFinding" type="PathFinding" parent="."]
+cell_radius = 0
+grid_world_size = 10
