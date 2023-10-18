@@ -29,7 +29,6 @@ void PathFinding::_ready() {
 
     UtilityFunctions::print("hello world 1");
 
-
     RUNTIME_ONLY
 
     grid = Ref<ASGrid>();

@@ -22,11 +22,15 @@ void OnlineSearch::configure(Node* p_owner, int p_num_layers) {
 
     ERR_FAIL_COND_MSG(num_layers < 1,"num_layers cant be less than 1");
 
+    Ref<ASGrid> grid = Ref<ASGrid>();
+    grid.instantiate();
+
     for (int i = 1; i <= num_layers; i++)
     {
-        Cluster cluster = Cluster();
-        Ref<ASGrid> grid = Ref<ASGrid>();
-        grid.instantiate();
+        PathFinding path_finding = PathFinding();
+
+        Cluster cluster = Cluster(grid, path_finding);
+
         cluster.grid = grid;
         
         cluster_map.emplace(i, cluster);

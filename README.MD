@@ -17,6 +17,8 @@ This GDExtension project extends the functionality of the Godot Engine for use i
 
 This project aims to provide a powerful HPA pathfinding system for real-time strategy games developed in the Godot Engine. Hierarchical Pathfinding allows for efficient path planning in large game maps, enabling smooth unit movement and intelligent AI decision-making.
 
+You can check how HPA works: [HPA Document](hpa_document.pdf)
+
 ## Features
 
 - **HPA Pathfinding**: Utilizes a Hierarchical Pathfinding approach for improved performance in large, complex maps.

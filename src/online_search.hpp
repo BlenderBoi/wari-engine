@@ -10,7 +10,9 @@ namespace godot {
 
 struct Cluster {
     Ref<ASGrid> grid;
-    Ref<PathFinding> path_finding;
+    PathFinding* path_finding;
+
+    Cluster(Ref<ASGrid> p_grid, PathFinding* p_path) : grid(p_grid),path_finding(p_path) {};
 };
 
 class OnlineSearch : public RefCounted {
