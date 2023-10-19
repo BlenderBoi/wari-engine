@@ -21,7 +21,7 @@ Our project is an open-source real-time strategy game developed using Godot 4. I
 - **Godot 4 Integration**: Fully leverages the features and improvements of Godot 4 for stunning graphics and robust gameplay.
 - **Flexible Architecture**: Designed with a modular and flexible architecture, making it easy to add custom content and features.
 - **Real-Time Strategy Gameplay**: Includes essential RTS gameplay elements like unit management, resource gathering, and AI-controlled opponents.
-- **Open Source**: Licensed under the [MIT License](LICENSE), encouraging collaboration and customization.
+- **Open Source**: Licensed under the [GPL License](LICENSE), encouraging collaboration and customization.
 
 ## GDExtension Branch
 
