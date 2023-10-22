@@ -23,7 +23,7 @@ class OnlineSearch : public RefCounted {
         ~OnlineSearch();
 
         void search(ASCell* start, ASCell* goal, int layer);
-        void configure(int p_num_layers);
+        void configure(Node* p_owner, int p_num_layers);
 
     protected:
         static void _bind_methods();

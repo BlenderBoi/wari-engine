@@ -25,16 +25,16 @@ void OnlineSearch::configure(Node* p_owner, int p_num_layers) {
     Ref<ASGrid> grid = Ref<ASGrid>();
     grid.instantiate();
 
-    for (int i = 1; i <= num_layers; i++)
-    {
-        PathFinding path_finding = PathFinding();
+    // for (int i = 1; i <= num_layers; i++)
+    // {
+    //     PathFinding path_finding = PathFinding();
 
-        Cluster cluster = Cluster(grid, path_finding);
+    //     Cluster cluster = Cluster(grid, path_finding);
 
-        cluster.grid = grid;
+    //     cluster.grid = grid;
         
-        cluster_map.emplace(i, cluster);
-    }
+    //     cluster_map.emplace(i, cluster);
+    // }
     
 
 

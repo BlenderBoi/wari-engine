@@ -2,6 +2,7 @@
 
 #include "as_grid.h"
 #include "path_finding.h"
+#include "hpa.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -17,6 +18,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 
     ClassDB::register_class<ASGrid>();
     ClassDB::register_class<PathFinding>();
+    ClassDB::register_class<HPA>();
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
