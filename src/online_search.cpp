@@ -18,8 +18,6 @@ void OnlineSearch::configure(Node* p_owner, int p_num_layers) {
     num_layers = p_num_layers;
     cluster_index = 0;
 
-    cluster_map = std::map<int, Cluster>();
-
     ERR_FAIL_COND_MSG(num_layers < 1,"num_layers cant be less than 1");
 
     Ref<ASGrid> grid = Ref<ASGrid>();

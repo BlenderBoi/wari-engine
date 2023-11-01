@@ -5,10 +5,13 @@
 #include <godot_cpp/classes/resource.hpp>
 #include <godot_cpp/variant/array.hpp>
 
+
+
 #include "as_grid.h"
 #include "path_finding.h"
 #include "online_search.hpp"
 #include "helper.hpp"
+#include "cell_data.h"
 
 namespace godot {
 
@@ -24,7 +27,7 @@ class HPA : public Node3D {
         
         int cell_radius;
         
-        
+        ASGrid grid;
         // TypedArray<Resource> test;
 
     public:
@@ -44,6 +47,8 @@ class HPA : public Node3D {
         int get_cell_radius() const;
 
         void start();
+
+        TypedArray<CellData> debug_get_cells();
 
         // void set_test(const TypedArray<Resource> p_test);
         // TypedArray<Resource> get_test() const;

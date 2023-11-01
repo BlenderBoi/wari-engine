@@ -96,12 +96,6 @@ void ASGrid::create_grid(Node3D* p_node, int p_grid_world_size, int p_cell_radiu
     #endif
 }
 
-void ASGrid::create_abstract_grid(Node3D* p_node, int p_layer_size, int p_cell_radius) {
-    grid_world_size = p_layer_size;
-    cell_radius = p_cell_radius;
-    cell_diameter = cell_radius * 2;
-    grid_size = Vector2i(1,1) * (grid_world_size / cell_diameter);
-}
 
 
 ASCell* ASGrid::get_cell_from_world(const Vector3 position) {

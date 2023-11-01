@@ -8,12 +8,6 @@
 
 namespace godot {
 
-struct Cluster {
-    Ref<ASGrid> grid;
-    PathFinding* path_finding;
-
-    Cluster(Ref<ASGrid> p_grid, PathFinding* p_path) : grid(p_grid),path_finding(p_path) {};
-};
 
 class OnlineSearch : public RefCounted {
     GDCLASS(OnlineSearch, RefCounted)
@@ -29,7 +23,6 @@ class OnlineSearch : public RefCounted {
         static void _bind_methods();
     
     private:
-        std::map<int, Cluster> cluster_map;
         int cluster_index;
         int num_layers;
 

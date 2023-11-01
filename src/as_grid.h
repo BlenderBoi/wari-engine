@@ -22,20 +22,22 @@ struct ASCell {
 };
 
 struct ClusterCell {
-    std::vector<ASCell*> cells;
+    ASCell* owner;
     std::vector<ClusterCell*> neighbours;
 };
+
 
 struct Cluster {
     std::vector<ClusterCell*> cluster_cells;
 };
 
+typedef std::vector<std::vector<Cluster*>> PTR_Cluster2D;
 typedef std::vector<std::vector<Cluster>> Cluster2D;
 
 struct AbstractGraph {
 
     Cluster2D clusters;
-
+    AbstractGraph* parent;
 
 };
 
@@ -50,13 +52,13 @@ class ASGrid : public RefCounted {
         ASCell* get_cell_from_world(const Vector3 position);
         void create_grid(Node3D* p_node, int p_grid_world_size, int p_cell_radius);
         void create_cluster(Node3D* p_node, int p_layer_size);
+        Cell2D grid;
 
     private:
         int grid_world_size;
         Vector2i grid_size;
         float cell_radius;
         float cell_diameter;
-        Cell2D grid;
         AbstractGraph abstract_graphs[2]; //only two layers are supported (more can be added if a larger map is needed 1024+)
 
 

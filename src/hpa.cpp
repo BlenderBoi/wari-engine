@@ -45,6 +45,8 @@ void HPA::_bind_methods() {
     ClassDB::bind_method(D_METHOD("set_cell_radius", "cell_radius"), &HPA::set_cell_radius);
     ClassDB::add_property("HPA", PropertyInfo(Variant::INT, "cell_radius"), "set_cell_radius", "get_cell_radius");
 
+    ClassDB::bind_method(D_METHOD("debug_get_cells"), &HPA::debug_get_cells);
+
     ClassDB::bind_method(D_METHOD("start"), &HPA::start);
 }
 
@@ -78,4 +80,25 @@ void HPA::set_cell_radius(const int p_cell_radius) {
 
 int HPA::get_cell_radius() const {
     return cell_radius;
+}
+
+TypedArray<CellData> HPA::debug_get_cells() {
+    TypedArray<CellData> cell_data;
+
+  
+
+    for (int x = 0; x < grid_size; x++)
+    {
+        for (int y = 0; y < grid_size; y++)
+        {
+            Ref<CellData> data;
+            data.instantiate();
+
+            data->world_pos = grid.grid[x][y].world_position;
+            cell_data.push_back(data);
+        }
+    }
+
+    return cell_data;
+    
 }
