@@ -1,7 +1,6 @@
 #include "register_types.h"
 
 #include "as_grid.h"
-#include "path_finding.h"
 #include "hpa.h"
 #include "cell_data.h"
 
@@ -20,7 +19,6 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
     }
 
     ClassDB::register_class<ASGrid>();
-    ClassDB::register_class<PathFinding>();
     ClassDB::register_class<CellData>();
     ClassDB::register_class<HPA>();
 }

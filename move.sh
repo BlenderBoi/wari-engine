@@ -2,7 +2,7 @@
 
 # Define the source and destination directories
 source_dir="./bin"
-destination_dir="/mnt/sdb1/job_projects/Godot411/RTSProject/bin/"
+destination_dir="/mnt/sdb1/projects4/WariEngine/bin/"
 
 # Check if the source directory exists
 if [ -d "$source_dir" ]; then

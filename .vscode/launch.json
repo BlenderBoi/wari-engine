@@ -5,8 +5,8 @@
       "cwd": "${workspaceFolder}",
       "type": "lldb",
       "request": "launch",
-      "program": "/mnt/sdb1/Godot_v4.2-dev6_linux.x86_64",
-      "args": [ "--editor", "--path", "/mnt/sdb1/job_projects/Godot411/RTSProject/" ],
+      "program": "/mnt/sdb1/Godot_v4.2-beta3_linux.x86_64",
+      "args": [ "--editor", "--path", "/mnt/sdb1/projects4/WariEngine/" ],
       "preLaunchTask": "build",
       "externalConsole": false,
       "setupCommands":
@@ -23,8 +23,8 @@
         "cwd": "${workspaceFolder}",
         "type": "lldb",
         "request": "launch",
-        "program": "/mnt/sdb1/Godot_v4.2-dev6_linux.x86_64",
-        "args": [ "--editor", "--path", "/mnt/sdb1/job_projects/Godot411/RTSProject/" ],
+        "program": "/mnt/sdb1/Godot_v4.2-beta3_linux.x86_64",
+        "args": [ "--editor", "--path", "/mnt/sdb1/projects4/WariEngine/" ],
       }
     ]
   }

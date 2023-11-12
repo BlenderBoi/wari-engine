@@ -13,7 +13,9 @@
 using namespace godot;
 
 ASGrid::ASGrid() {
-    
+    grid_world_size = 0;
+    cell_radius = 0;
+    path = PackedCellArray();
 
 }
 
@@ -25,14 +27,15 @@ void ASGrid::_bind_methods() {
     // ClassDB::bind_method(D_METHOD("create_grid","owner"),&ASGrid::create_grid);
 }
 
-void ASGrid::create_grid(Node3D* p_node, int p_grid_world_size, int p_cell_radius) {
+void ASGrid::create_grid(Node3D* p_node) {
 
     #if DEBUG_ENABLED
     auto start = std::chrono::high_resolution_clock::now();
     #endif
 
-    grid_world_size = p_grid_world_size;
-    cell_radius = p_cell_radius;
+    ERR_FAIL_COND_MSG(grid_world_size < 32, "Grid World Size must be at least 32!");
+    ERR_FAIL_COND_MSG(cell_radius < 1, "Cell Radius must be at least 1!");
+
     cell_diameter = cell_radius * 2;
     grid_size = Vector2i(1,1) * (grid_world_size / cell_diameter);
     

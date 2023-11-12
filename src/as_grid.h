@@ -12,13 +12,24 @@ namespace godot {
 struct ASCell {
     Vector3 world_position;
     Vector2i grid_index;
-    std::vector<ASCell*> neighbours;
+    ASCell* parent;
+    PackedCellArray neighbours;
+
+    int h_cost, g_cost;
+
+    int get_fcost() {
+        return g_cost + h_cost;
+    }
 
     ASCell(Vector3 p_world_pos, Vector2i p_grid_index) {
         world_position = p_world_pos;
         grid_index = p_grid_index;
-        neighbours = std::vector<ASCell*>();
+        neighbours = PackedCellArray();
+        g_cost = 0;
+        h_cost = 0;
+        parent = nullptr;
     }
+
 };
 
 struct ClusterCell {
@@ -42,6 +53,7 @@ struct AbstractGraph {
 };
 
 typedef std::vector<std::vector<ASCell>> Cell2D;
+typedef PackedCellArray PackedCellArray; //name convention to godot :D
 
 class ASGrid : public RefCounted {
     GDCLASS(ASGrid, RefCounted)
@@ -50,15 +62,18 @@ class ASGrid : public RefCounted {
         ASGrid();
         ~ASGrid();
         ASCell* get_cell_from_world(const Vector3 position);
-        void create_grid(Node3D* p_node, int p_grid_world_size, int p_cell_radius);
-        void create_cluster(Node3D* p_node, int p_layer_size);
+        void create_grid(Node3D* p_node);
         Cell2D grid;
+        int grid_world_size;
+        int cell_radius;
+        void set_path(PackedCellArray new_path);
 
     private:
-        int grid_world_size;
         Vector2i grid_size;
-        float cell_radius;
-        float cell_diameter;
+        int cell_diameter;
+
+        PackedCellArray path;
+        
         AbstractGraph abstract_graphs[2]; //only two layers are supported (more can be added if a larger map is needed 1024+)
 
 
