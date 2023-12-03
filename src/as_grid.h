@@ -9,6 +9,10 @@
 
 namespace godot {
 
+struct ASCell;
+typedef std::vector<ASCell*> PackedCellArray; //name convention to godot :D
+
+
 struct ASCell {
     Vector3 world_position;
     Vector2i grid_index;
@@ -53,7 +57,6 @@ struct AbstractGraph {
 };
 
 typedef std::vector<std::vector<ASCell>> Cell2D;
-typedef PackedCellArray PackedCellArray; //name convention to godot :D
 
 class ASGrid : public RefCounted {
     GDCLASS(ASGrid, RefCounted)
@@ -66,10 +69,10 @@ class ASGrid : public RefCounted {
         Cell2D grid;
         int grid_world_size;
         int cell_radius;
-        void set_path(PackedCellArray new_path);
+        Vector2i grid_size;
+        // void set_path(PackedCellArray new_path);
 
     private:
-        Vector2i grid_size;
         int cell_diameter;
 
         PackedCellArray path;

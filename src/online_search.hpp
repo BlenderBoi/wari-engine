@@ -17,7 +17,7 @@ class OnlineSearch : public RefCounted {
 
         void search(ASCell* start, ASCell* goal, int layer);
         void configure(Node* p_owner, int p_num_layers);
-        void find_path(Ref<ASGrid> grid, const Vector3 start_pos, const Vector3 end_pos);
+        PackedCellArray find_path(Ref<ASGrid> grid, const Vector3 start_pos, const Vector3 end_pos);
         PackedCellArray retrace_path(ASCell* cell_from, ASCell* cell_to);
 
     protected:

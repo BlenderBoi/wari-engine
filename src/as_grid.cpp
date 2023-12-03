@@ -3,12 +3,9 @@
 #include <godot_cpp/variant/utility_functions.hpp>
 
 #include "as_grid.h"
+#include "utils.hpp"
 
-#if DEBUG_ENABLED
 
-#include <chrono>
-
-#endif
 
 using namespace godot;
 
@@ -29,9 +26,7 @@ void ASGrid::_bind_methods() {
 
 void ASGrid::create_grid(Node3D* p_node) {
 
-    #if DEBUG_ENABLED
-    auto start = std::chrono::high_resolution_clock::now();
-    #endif
+    CLOCK_START;
 
     ERR_FAIL_COND_MSG(grid_world_size < 32, "Grid World Size must be at least 32!");
     ERR_FAIL_COND_MSG(cell_radius < 1, "Cell Radius must be at least 1!");
@@ -86,17 +81,7 @@ void ASGrid::create_grid(Node3D* p_node) {
     }
 
 
-    #if DEBUG_ENABLED
-    auto stop = std::chrono::high_resolution_clock::now();
-
-    // Calculate the duration in microseconds and milliseconds
-    auto durationMicro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-    auto durationMilli = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-
-    // Output the results
-    std::cout << "Time taken by function in microseconds: " << durationMicro.count() << " us" << std::endl;
-    std::cout << "Time taken by function in milliseconds: " << durationMilli.count() << " ms" << std::endl;
-    #endif
+    CLOCK_END("create_grid");
 }
 
 

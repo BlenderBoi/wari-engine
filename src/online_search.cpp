@@ -3,6 +3,7 @@
 #include <unordered_set>
 #include <vector>
 #include <algorithm>
+#include "utils.hpp"
 
 using namespace godot;
 
@@ -33,8 +34,10 @@ inline bool vector_contains(PackedCellArray& vector, ASCell* element) {
 	return it != vector.end();
 }
 
-void OnlineSearch::find_path(Ref<ASGrid> grid, Vector3 start_pos, const Vector3 end_pos) {
+PackedCellArray OnlineSearch::find_path(Ref<ASGrid> grid, Vector3 start_pos, const Vector3 end_pos) {
 
+    CLOCK_START;
+    PackedCellArray result = PackedCellArray();
     ASCell* start_cell = grid->get_cell_from_world(start_pos);
     ASCell* end_cell = grid->get_cell_from_world(end_pos);
 
@@ -58,14 +61,13 @@ void OnlineSearch::find_path(Ref<ASGrid> grid, Vector3 start_pos, const Vector3 
        closed_set.insert(cell);
 
        if (cell == end_cell) {
-			PackedCellArray path = retrace_path(start_cell, end_cell);
-			grid->set_path(path);
+			return retrace_path(start_cell, end_cell);
        }
 
 	   for(ASCell* neighbour : cell->neighbours) {
 			if (unordered_set_has(closed_set, neighbour)) continue;
 			int new_cost = cell->g_cost + get_distance(cell, neighbour);
-			if (new_cost < neighbour->g_cost || vector_contains(open_set, neighbour)) {
+			if (new_cost < neighbour->g_cost || !vector_contains(open_set, neighbour)) {
 				neighbour->g_cost = new_cost;
 				neighbour->h_cost = get_distance(neighbour, end_cell);
 				neighbour->parent = cell;
@@ -78,6 +80,9 @@ void OnlineSearch::find_path(Ref<ASGrid> grid, Vector3 start_pos, const Vector3 
 	   }
 
     }
+
+    CLOCK_END("find_path");
+    return result;
 
 }
 
