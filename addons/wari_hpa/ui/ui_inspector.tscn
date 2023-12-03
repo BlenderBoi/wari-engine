@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl08cdyc0t6p4"]
+
+[ext_resource type="Script" path="res://addons/wari_hpa/hpa_ui.gd" id="1_ner3e"]
+[ext_resource type="PackedScene" uid="uid://4ao41jlria1c" path="res://addons/wari_hpa/ui/ui_grid_popup.tscn" id="2_nr7e4"]
+
+[node name="UIInspector" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -886.0
+offset_bottom = -466.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ner3e")
+
+[node name="bt_create" type="Button" parent="."]
+layout_mode = 2
+text = "Create Grid"
+
+[node name="bt_load" type="Button" parent="."]
+layout_mode = 2
+text = "Load Grid"
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+title = "Create Grid"
+initial_position = 5
+size = Vector2i(720, 720)
+borderless = false
+always_on_top = true
+extend_to_title = true
+
+[node name="GridPopup" parent="PopupPanel" instance=ExtResource("2_nr7e4")]
+offset_right = 716.0
+offset_bottom = 716.0
+
+[connection signal="pressed" from="bt_create" to="." method="_on_bt_create_pressed"]

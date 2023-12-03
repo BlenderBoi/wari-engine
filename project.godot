@@ -10,7 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Rts Project"
+config/name="Wari Engine"
+config/tags=PackedStringArray("urgent")
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/wari_hpa/plugin.cfg")

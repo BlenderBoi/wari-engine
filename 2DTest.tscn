@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://wy5umaia7p3y"]
+
+[ext_resource type="Script" path="res://HPATest.gd" id="1_7c1jc"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(166, 174)
+script = ExtResource("1_7c1jc")
+
+[node name="Node" type="Node" parent="."]

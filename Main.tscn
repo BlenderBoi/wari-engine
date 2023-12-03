@@ -1,7 +1,73 @@
-[gd_scene format=3 uid="uid://c0bcso6cnarm4"]
+[gd_scene load_steps=11 format=3 uid="uid://buw0gj7t51vc6"]
+
+[ext_resource type="Script" path="res://HPA.gd" id="1_dc4gt"]
+[ext_resource type="Script" path="res://addons/wari_hpa/HPA_Draw.gd" id="2_1ptee"]
+[ext_resource type="Shader" path="res://addons/wari_hpa/shaders/sh_wireframe.gdshader" id="3_u5ct7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7b5hr"]
+render_priority = 0
+shader = ExtResource("3_u5ct7")
+shader_parameter/albedo = Color(1, 1, 1, 0)
+shader_parameter/wire_color = Color(0, 1, 0, 1)
+shader_parameter/wire_width = 0.215
+shader_parameter/wire_smoothness = 0.003
+
+[sub_resource type="BoxMesh" id="BoxMesh_fuf71"]
+material = SubResource("ShaderMaterial_7b5hr")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5ed8r"]
+
+[sub_resource type="Environment" id="Environment_pt0wd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rt5ll"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4ud6"]
+albedo_color = Color(0.176471, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1bdm"]
+albedo_color = Color(0.776471, 0.952941, 0.47451, 1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="PathFinding" type="PathFinding" parent="."]
-cell_radius = 0
-grid_world_size = 10
+[node name="HPA" type="HPA" parent="." node_paths=PackedStringArray("from", "to")]
+script = ExtResource("1_dc4gt")
+from = NodePath("../A")
+to = NodePath("../B")
+offset = -1.975
+
+[node name="Node" type="Node" parent="HPA"]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 1
+script = ExtResource("2_1ptee")
+generate = true
+
+[node name="box" type="MeshInstance3D" parent="HPA/Node"]
+visible = false
+mesh = SubResource("BoxMesh_fuf71")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 50.294, 23.543, -32.806)
+projection = 1
+current = true
+size = 74.61
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_5ed8r")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pt0wd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.61219, 0.790711, 0, -0.790711, 0.61219, 0, 0, 0)
+
+[node name="A" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.1564, 0, -18.4918)
+mesh = SubResource("CapsuleMesh_rt5ll")
+surface_material_override/0 = SubResource("StandardMaterial3D_u4ud6")
+
+[node name="B" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7288, -2.38419e-07, -48.8057)
+mesh = SubResource("CapsuleMesh_rt5ll")
+surface_material_override/0 = SubResource("StandardMaterial3D_a1bdm")
